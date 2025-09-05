@@ -1,11 +1,14 @@
 
 using Microsoft.EntityFrameworkCore;
 using ZonaRival.Data;
+using ZonaRival.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<InicioService>();
+
 
 // Leer la cadena de conexión desde appsettings.json
 var ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
